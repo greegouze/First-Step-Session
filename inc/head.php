@@ -57,6 +57,6 @@ if (session_status() === PHP_SESSION_NONE) {
             </div><!-- /.container-fluid -->
         </nav>
         <div class="container-fluid text-right">
-            <strong>Hello <?= $_SESSION['loginname'] ?? 'Wilder' ?> !</strong>
+            <strong>Hello <?= $_SESSION['loginname'] ?? '' ?> !</strong>
         </div>
     </header>
