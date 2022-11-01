@@ -1,3 +1,23 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+};
+if (!isset($_SESSION['add_to_cart'])) {
+    $_SESSION['add_to_cart'] = array();
+}
+
+
+if (isset($_GET['add_to_cart'])) {
+    $currentQuantity = 0;
+    if (isset($_SESSION['add_to_cart'][$_GET['add_to_cart']])) {
+        $currentQuantity = $_SESSION['add_to_cart'][$_GET['add_to_cart']];
+    }
+    $_SESSION['add_to_cart'][$_GET['add_to_cart']] = $currentQuantity + 1;
+}
+
+
+?>
+
 <?php require 'inc/data/products.php'; ?>
 <?php require 'inc/head.php'; ?>
 <section class="cookies container-fluid">
